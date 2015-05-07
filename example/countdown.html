@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>countdown</title>
+</head>
+<body>
+    <div id="clock">00:01:00</div>
+    <script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.js"></script>
+    <script>
+        require.config({
+            baseUrl: '../src',
+            packages: [
+                {
+                    name: 'hf-emitter',
+                    location: '../dep/hf-emitter/src',
+                    main: 'main'
+                },
+                {
+                    name: 'hf-function',
+                    location: '../dep/hf-function/src',
+                    main: 'main'
+                },
+                {
+                    name: 'hf-type',
+                    location: '../dep/hf-type/src',
+                    main: 'main'
+                },
+                {
+                    name: 'hf-util',
+                    location: '../dep/hf-util/src',
+                    main: 'main'
+                }
+            ]
+        });
+        require(['countdown'], function (Countdown) {
+            var el = document.getElementById('clock');
+            var t = el.innerHTML;
+            var countdown = new Countdown({
+                duration: t,
+                interval: 1000
+            });
+            countdown.on('tick', function (e) {
+                el.innerHTML = [e.h, e.m, e.s].join(':');
+            });
+            countdown.on('complete', function (e) {
+                console.log('complete');
+            });
+            countdown.start();
+        });
+    </script>
+</body>
+</html>

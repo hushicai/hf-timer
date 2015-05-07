@@ -1,0 +1,21 @@
+{
+  "name": "hf-timer",
+  "version": "1.0.0",
+  "homepage": "https://github.com/hushicai/hf-timer",
+  "authors": [
+    "hushicai <bluthcy@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "hf-emitter": "*",
+    "hf-util": "*",
+    "hf-function": "*"
+  }
+}

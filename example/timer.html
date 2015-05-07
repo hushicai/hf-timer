@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>timer</title>
+</head>
+<body>
+   <script src="http://apps.bdimg.com/libs/require.js/2.1.9/require.js"></script>
+   <script>
+    require.config({
+        baseUrl: '../src',
+        packages: [
+            {
+                name: 'hf-emitter',
+                location: '../dep/hf-emitter/src',
+                main: 'main'
+            },
+            {
+                name: 'hf-function',
+                location: '../dep/hf-function/src',
+                main: 'main'
+            },
+            {
+                name: 'hf-type',
+                location: '../dep/hf-type/src',
+                main: 'main'
+            },
+            {
+                name: 'hf-util',
+                location: '../dep/hf-util/src',
+                main: 'main'
+            }
+        ]
+    });
+
+       require(['timer'], function (Timer) {
+           var timer = new Timer(1000);
+
+           timer.on('tick', function (t) {
+               console.log(t);
+           });
+
+           timer.start();
+       });
+   </script>
+</body>
+</html>
