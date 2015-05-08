@@ -24,8 +24,9 @@ define(
             this._running = true;
             this._intervalId = setInterval(bind(this.tick, this), this.interval);
             // first tick
-            // this.tick();
+            this.tick();
         };
+
         /**
          * 结束
          *
